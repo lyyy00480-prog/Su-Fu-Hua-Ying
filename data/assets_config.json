@@ -24,6 +24,9 @@
     "FONT_pixel": {
         "default": "assets/fonts/PixelOperator.ttf"
     },
+    "FONT_chinese_dialogue": {
+        "default": "assets/fonts/MSYH.TTC"
+    },
     "AUDIO_menu_bgm": {
         "default": "assets/audio/menu_bgm.mp3"
     }

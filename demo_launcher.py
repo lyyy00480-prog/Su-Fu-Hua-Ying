@@ -52,28 +52,60 @@ config_file_path = os.path.join("data", "assets_config.json")
 asset_manager = AssetManager(config_file_path)
 
 # 字体设置
-font = pygame.font.Font(None, 36)
+# Initialize fonts to default system fonts as a safe fallback
 dialogue_font = pygame.font.Font(None, 28)
 speaker_font = pygame.font.Font(None, 32) # 角色名使用稍大字体
-
-# Initialize default fonts first as a safe fallback
 menu_title_font = pygame.font.Font(None, 60)
 menu_prompt_font = pygame.font.Font(None, 30)
 
-# Custom pixel font for menu - attempt to load and overwrite if successful
+# Flag to track if Chinese font was successfully loaded for dialogue/speaker
+chinese_font_loaded_for_dialogue = False
+
+# Try loading Chinese font for dialogue and speaker
 try:
-    pixel_font_path = asset_manager.get_asset_path("FONT_pixel")
-    # Only attempt to load if the file exists and is not empty
-    if os.path.exists(pixel_font_path) and os.path.getsize(pixel_font_path) > 0:
-        _temp_menu_title_font = pygame.font.Font(pixel_font_path, 60)
-        _temp_menu_prompt_font = pygame.font.Font(pixel_font_path, 30)
-        menu_title_font = _temp_menu_title_font
-        menu_prompt_font = _temp_menu_prompt_font
-        print(f"Successfully loaded custom pixel font from {pixel_font_path}")
+    chinese_font_path = asset_manager.get_asset_path("FONT_chinese_dialogue")
+    if os.path.exists(chinese_font_path) and os.path.getsize(chinese_font_path) > 0:
+        dialogue_font = pygame.font.Font(chinese_font_path, 28)
+        speaker_font = pygame.font.Font(chinese_font_path, 32)
+        chinese_font_loaded_for_dialogue = True
+        print(f"Successfully loaded Chinese font from {chinese_font_path} for dialogue and speaker.")
     else:
-        print(f"Custom pixel font file missing or empty: {pixel_font_path}. Using default font.")
+        print(f"Chinese font file missing or empty: {chinese_font_path}. Dialogue/speaker using system default.")
 except Exception as e:
-    print(f"Error loading custom pixel font: {e}. Using default font.")
+    print(f"Error loading Chinese font for dialogue/speaker: {e}. Dialogue/speaker using system default.")
+
+# Try loading Chinese font for menu. If not available, fall back to pixel font, then system default.
+try:
+    if chinese_font_loaded_for_dialogue: # If Chinese font was loaded for dialogue, use it for menu as well
+        menu_title_font = pygame.font.Font(chinese_font_path, 60)
+        menu_prompt_font = pygame.font.Font(chinese_font_path, 30)
+        print(f"Successfully used Chinese font for menu.")
+    else: # Chinese font was not loaded, try pixel font for menu
+        pixel_font_path = asset_manager.get_asset_path("FONT_pixel")
+        if os.path.exists(pixel_font_path) and os.path.getsize(pixel_font_path) > 0:
+            menu_title_font = pygame.font.Font(pixel_font_path, 60)
+            menu_prompt_font = pygame.font.Font(pixel_font_path, 30)
+            print(f"Successfully loaded custom pixel font from {pixel_font_path} for menu.")
+        else:
+            print(f"Custom pixel font file missing or empty: {pixel_font_path}. Menu using system default.")
+except Exception as e:
+    print(f"Error loading custom font for menu: {e}. Menu using system default.")
+
+# Diagnostic prints for font loading
+if chinese_font_loaded_for_dialogue:
+    print(f"DEBUG: Dialogue and Speaker font is loaded from: {chinese_font_path}")
+else:
+    print("DEBUG: Dialogue and Speaker font is using system default.")
+
+# Determine which font is actually being used for menu_title_font
+try:
+    # Attempt to get the filename of the loaded font, if it's a file-based font
+    if hasattr(menu_title_font, 'fname') and menu_title_font.fname:
+        print(f"DEBUG: Menu Title font is loaded from: {menu_title_font.fname}")
+    else:
+        print("DEBUG: Menu Title font is using system default.")
+except Exception as e:
+    print(f"DEBUG: Could not determine Menu Title font source: {e}. Assuming system default.")
 
 # 对话框位置和大小
 DIALOGUE_BOX_HEIGHT = 150
