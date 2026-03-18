@@ -19,7 +19,7 @@
         "default": "assets/ui/next_indicator.png"
     },
     "scene_menu_bg": {
-        "default": "assets/scenes/bg_menu.png"
+        "default": "assets/scenes/image.png"
     },
     "FONT_pixel": {
         "default": "assets/fonts/PixelOperator.ttf"
@@ -27,7 +27,19 @@
     "FONT_chinese_dialogue": {
         "default": "assets/fonts/MSYH.TTC"
     },
+    "scene_art_tower_house": {
+        "default": "assets/scenes/arttower-house-5211917_1920.jpg"
+    },
+    "scene_marburg_castle": {
+        "default": "assets/scenes/michel_marburg-castle-8153987_1920.jpg"
+    },
+    "SFX_dialogue_blip": {
+        "default": "assets/audio/placeholder_sfx.wav"
+    },
+    "AUDIO_dialogue_bgm": {
+                    "default": "assets/audio/vntrack21.mp3"
+                },
     "AUDIO_menu_bgm": {
-        "default": "assets/audio/menu_bgm.mp3"
-    }
+                    "default": "assets/audio/vntrack19.mp3"
+                }
 }

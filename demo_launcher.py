@@ -23,6 +23,9 @@ def get_resource_path(relative_path):
 pygame.init()
 pygame.mixer.init() # 初始化 mixer 模块
 
+# 用于缓存音效
+sfx_cache = {}
+
 # 屏幕设置
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
@@ -174,6 +177,21 @@ class MenuState:
                 current_game_state = STATE_PLAYING
                 pygame.mixer.music.stop() # Stop menu music when starting game
 
+                # 播放游戏开始后的 BGM (第一个对话的 BGM)
+                global current_bgm_id
+                first_dialogue_bgm_id = dialogues[0].get("bgm")
+                if first_dialogue_bgm_id:
+                    bgm_path = self.asset_manager.get_asset_path(first_dialogue_bgm_id)
+                    if os.path.exists(bgm_path) and os.path.getsize(bgm_path) > 0:
+                        pygame.mixer.music.load(bgm_path)
+                        pygame.mixer.music.play(-1)
+                        current_bgm_id = first_dialogue_bgm_id
+                        print(f"Successfully started BGM: {first_dialogue_bgm_id} from {bgm_path}")
+                    else:
+                        print(f"Warning: BGM file missing or empty: {bgm_path}. Skipping BGM.")
+                else:
+                    print("No BGM specified for the first dialogue entry.")
+
     def draw(self, screen):
         screen.blit(self.background_image, (0, 0))
 
@@ -238,6 +256,31 @@ def load_background_image(background_id):
         fallback_image.fill((50, 50, 50)) # Deep gray as fallback
         return fallback_image
 
+def play_sfx(sfx_id):
+    """
+    根据 SFX ID 播放音效。
+    """
+    print(f"DEBUG: Attempting to play SFX with ID: {sfx_id}")
+    if sfx_id not in sfx_cache:
+        try:
+            sfx_path = asset_manager.get_asset_path(sfx_id)
+            print(f"DEBUG: Resolved SFX path: {sfx_path}")
+            if os.path.exists(sfx_path) and os.path.getsize(sfx_path) > 0:
+                sfx_cache[sfx_id] = pygame.mixer.Sound(sfx_path)
+                print(f"Successfully loaded SFX from {sfx_path}")
+            else:
+                print(f"Warning: SFX file missing or empty: {sfx_path}. Skipping SFX.")
+                return # 文件不存在或为空，不缓存也不播放
+        except Exception as e:
+            print(f"Error loading SFX {sfx_id}: {e}. Skipping SFX.")
+            return # 加载失败，不缓存也不播放
+
+    if sfx_id in sfx_cache:
+        sfx_cache[sfx_id].play()
+        print(f"DEBUG: Playing SFX: {sfx_id}")
+    else:
+        print(f"DEBUG: SFX {sfx_id} not in cache, not playing.")
+
 # Instantiate game states
 menu_state = MenuState(asset_manager, SCREEN_WIDTH, SCREEN_HEIGHT)
 
@@ -252,6 +295,9 @@ fade_alpha = 0 # 0-255
 fade_speed = 5 # 淡入淡出速度，每帧变化的alpha值
 
 current_dialogue_index = 0
+
+# BGM 播放相关变量
+current_bgm_id = None # 用于跟踪当前播放的 BGM ID
 
 # 打字机效果变量
 typing_text_index = 0
@@ -290,8 +336,8 @@ while running:
                             is_typing_finished = True
                         else:
                             # 如果已显示完整，则切换到下一句
-                            next_dialogue_index = (current_dialogue_index + 1) % len(dialogues)
-                            if next_dialogue_index != current_dialogue_index: # 确保不是最后一句的循环
+                            if current_dialogue_index < len(dialogues) - 1: # 如果不是最后一句
+                                next_dialogue_index = current_dialogue_index + 1
                                 new_background_id = dialogues[next_dialogue_index]["background"]
                                 if new_background_id != current_background_id:
                                     # 背景变化，触发淡出
@@ -303,7 +349,37 @@ while running:
                                     current_dialogue_index = next_dialogue_index
                                     typing_text_index = 0 # 重置打字机进度
                                     is_typing_finished = False
+
+                                    # 播放对话音效 (如果存在)
+                                    sfx_id = dialogues[current_dialogue_index].get("sfx")
+                                    if sfx_id:
+                                        play_sfx(sfx_id)
+
+                                    # 检查 BGM 是否需要切换
+                                    new_bgm_id = dialogues[current_dialogue_index].get("bgm")
+                                    if new_bgm_id and new_bgm_id != current_bgm_id:
+                                        bgm_path = asset_manager.get_asset_path(new_bgm_id)
+                                        if os.path.exists(bgm_path) and os.path.getsize(bgm_path) > 0:
+                                            pygame.mixer.music.load(bgm_path)
+                                            pygame.mixer.music.play(-1)
+                                            current_bgm_id = new_bgm_id
+                                            print(f"Successfully switched BGM to: {new_bgm_id} from {bgm_path}")
+                                        else:
+                                            print(f"Warning: BGM file missing or empty: {bgm_path}. Skipping BGM switch.")
+                                    elif not new_bgm_id and current_bgm_id: # 如果新对话没有BGM但当前有，则停止
+                                        pygame.mixer.music.stop()
+                                        current_bgm_id = None
+                                        print("Stopped BGM as new dialogue has no BGM.")
+
                                     last_char_time = pygame.time.get_ticks() # 重置打字机时间
+                            else: # 已经是最后一句
+                                print("所有对话已显示完毕。")
+                                continue # 停留在当前对话，不进行任何操作
+
+
+
+
+
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1: # 鼠标左键
@@ -314,8 +390,8 @@ while running:
                             is_typing_finished = True
                         else:
                             # 如果已显示完整，则切换到下一句
-                            next_dialogue_index = (current_dialogue_index + 1) % len(dialogues)
-                            if next_dialogue_index != current_dialogue_index: # 确保不是最后一句的循环
+                            if current_dialogue_index < len(dialogues) - 1: # 如果不是最后一句
+                                next_dialogue_index = current_dialogue_index + 1
                                 new_background_id = dialogues[next_dialogue_index]["background"]
                                 if new_background_id != current_background_id:
                                     # 背景变化，触发淡出
@@ -327,6 +403,32 @@ while running:
                                     current_dialogue_index = next_dialogue_index
                                     typing_text_index = 0 # 重置打字机进度
                                     is_typing_finished = False
+
+                                    # 播放对话音效 (如果存在)
+                                    sfx_id = dialogues[current_dialogue_index].get("sfx")
+                                    if sfx_id:
+                                        play_sfx(sfx_id)
+
+                                    # 检查 BGM 是否需要切换
+                                    new_bgm_id = dialogues[current_dialogue_index].get("bgm")
+                                    if new_bgm_id and new_bgm_id != current_bgm_id:
+                                        bgm_path = asset_manager.get_asset_path(new_bgm_id)
+                                        if os.path.exists(bgm_path) and os.path.getsize(bgm_path) > 0:
+                                            pygame.mixer.music.load(bgm_path)
+                                            pygame.mixer.music.play(-1)
+                                            current_bgm_id = new_bgm_id
+                                            print(f"Successfully switched BGM to: {new_bgm_id} from {bgm_path}")
+                                        else:
+                                            print(f"Warning: BGM file missing or empty: {bgm_path}. Skipping BGM switch.")
+                                    elif not new_bgm_id and current_bgm_id: # 如果新对话没有BGM但当前有，则停止
+                                        pygame.mixer.music.stop()
+                                        current_bgm_id = None
+                                        print("Stopped BGM as new dialogue has no BGM.")
+
+                                    last_char_time = pygame.time.get_ticks() # 重置打字机时间
+                            else: # 已经是最后一句
+                                print("所有对话已显示完毕。")
+                                continue # 停留在当前对话，不进行任何操作
 
     # 逐字显示逻辑
     if current_game_state == STATE_PLAYING:
