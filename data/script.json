@@ -1,0 +1,27 @@
+[
+    {
+        "speaker": "林墨",
+        "text": "这间老宅……似乎比记忆中还要破败。",
+        "background": "scene_old_house"
+    },
+    {
+        "speaker": "旁白",
+        "text": "他轻声叹息，眼神中充满了对往事的追忆。",
+        "background": "scene_old_house"
+    },
+    {
+        "speaker": "林墨",
+        "text": "或许，我们能在这里找到一些被时间遗忘的色彩。",
+        "background": "scene_forest"
+    },
+    {
+        "speaker": "旁白",
+        "text": "阳光透过破败的窗户，洒在他手中的速写本上。",
+        "background": "scene_forest"
+    },
+    {
+        "speaker": "林墨",
+        "text": "每个角落，都似乎在低语着过去的故事...",
+        "background": "scene_old_house"
+    }
+]
