@@ -38,6 +38,7 @@ pygame.display.set_caption("苏府画影 - 演示")
 # 游戏状态
 STATE_MENU = "MENU"
 STATE_PLAYING = "PLAYING"
+STATE_CREDITS = "CREDITS" # 新增感谢名单状态
 current_game_state = STATE_MENU
 
 # 帧率控制
@@ -241,6 +242,33 @@ except FileNotFoundError:
         {"text": "林墨：剧本文件未找到，使用默认台词。", "background": "scene_old_house"}
     ]
 
+# 感谢名单内容
+CREDITS_CONTENT = [
+    "感谢游玩",
+    "",
+    "制作团队",
+    "策划: xx",
+    "编剧: xx",
+    "程序: xx",
+    "美术: xx",
+    "音乐: xx",
+    "音效: xx",
+    "",
+    "特别感谢",
+    "xx",
+    "xx",
+    "",
+    "鸣谢",
+    "所有支持我们的玩家",
+    "",
+    "希望您喜欢这个故事！"
+]
+
+# 感谢名单滚动相关变量
+credits_scroll_offset = 0
+credits_scroll_speed = 50  # 像素/秒
+credits_finished = False
+
 # 初始背景加载
 def load_background_image(background_id):
     try:
@@ -325,6 +353,12 @@ while running:
         
         if current_game_state == STATE_MENU:
             menu_state.handle_event(event)
+        elif current_game_state == STATE_CREDITS:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE and credits_finished:
+                    current_game_state = STATE_MENU
+                    credits_scroll_offset = 0
+                    credits_finished = False
         elif current_game_state == STATE_PLAYING:
             # Existing game event handling
             if event.type == pygame.KEYDOWN:
@@ -374,6 +408,8 @@ while running:
                                     last_char_time = pygame.time.get_ticks() # 重置打字机时间
                             else: # 已经是最后一句
                                 print("所有对话已显示完毕。")
+                                current_game_state = STATE_CREDITS # 切换到感谢名单状态
+                                pygame.mixer.music.stop() # 停止所有背景音乐
                                 continue # 停留在当前对话，不进行任何操作
 
 
@@ -428,6 +464,8 @@ while running:
                                     last_char_time = pygame.time.get_ticks() # 重置打字机时间
                             else: # 已经是最后一句
                                 print("所有对话已显示完毕。")
+                                current_game_state = STATE_CREDITS # 切换到感谢名单状态
+                                pygame.mixer.music.stop() # 停止所有背景音乐
                                 continue # 停留在当前对话，不进行任何操作
 
     # 逐字显示逻辑
@@ -542,6 +580,36 @@ while running:
                     bottomright=(DIALOGUE_BOX_RECT.right - 15, DIALOGUE_BOX_RECT.bottom - 10 + indicator_offset_y)
                 )
                 screen.blit(next_indicator_image, indicator_rect)
+    elif current_game_state == STATE_CREDITS:
+        # 更新感谢名单滚动
+        credits_scroll_offset += credits_scroll_speed * dt
+        
+        # 计算所有文本的总高度
+        total_credits_height = 0
+        for line in CREDITS_CONTENT:
+            text_surface = menu_prompt_font.render(line, True, WHITE)
+            total_credits_height += text_surface.get_height() + 10
+        
+        # 检查是否滚动完成（所有内容都滚出屏幕）
+        if credits_scroll_offset > total_credits_height + SCREEN_HEIGHT:
+            credits_finished = True
+        
+        # 渲染感谢名单（支持滚动）
+        y_offset = SCREEN_HEIGHT - credits_scroll_offset
+        for line in CREDITS_CONTENT:
+            text_surface = menu_prompt_font.render(line, True, WHITE)
+            text_rect = text_surface.get_rect(center=(SCREEN_WIDTH // 2, y_offset))
+            # 只绘制在屏幕范围内的文本
+            if -text_surface.get_height() < y_offset < SCREEN_HEIGHT + text_surface.get_height():
+                screen.blit(text_surface, text_rect)
+            y_offset += text_surface.get_height() + 10
+        
+        # 显示返回提示
+        if credits_finished:
+            hint_text = "Press Space to Return to Menu"
+            hint_surface = menu_prompt_font.render(hint_text, True, WHITE)
+            hint_rect = hint_surface.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT - 50))
+            screen.blit(hint_surface, hint_rect)
 
     # 更新屏幕
     pygame.display.flip()
