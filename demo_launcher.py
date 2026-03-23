@@ -1,4 +1,4 @@
-import pygame
+﻿import pygame
 import sys
 import os
 import json
@@ -242,27 +242,15 @@ except FileNotFoundError:
         {"text": "林墨：剧本文件未找到，使用默认台词。", "background": "scene_old_house"}
     ]
 
-# 感谢名单内容
-CREDITS_CONTENT = [
-    "感谢游玩",
-    "",
-    "制作团队",
-    "策划: xx",
-    "编剧: xx",
-    "程序: xx",
-    "美术: xx",
-    "音乐: xx",
-    "音效: xx",
-    "",
-    "特别感谢",
-    "xx",
-    "xx",
-    "",
-    "鸣谢",
-    "所有支持我们的玩家",
-    "",
-    "希望您喜欢这个故事！"
-]
+# 从 data/credits.json 加载感谢名单内容
+try:
+    credits_json_path = get_resource_path(os.path.join("data", "credits.json"))
+    with open(credits_json_path, "r", encoding="utf-8") as f:
+        CREDITS_CONTENT = json.load(f)["credits"]
+    print(f"Successfully loaded credits from {credits_json_path}")
+except Exception as e:
+    print(f"Warning: Could not load credits.json: {e}. Using default.")
+    CREDITS_CONTENT = ["感谢游玩", "", "希望您喜欢这个故事！"]
 
 # 感谢名单滚动相关变量
 credits_scroll_offset = 0
