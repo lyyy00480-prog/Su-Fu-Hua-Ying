@@ -1,0 +1,45 @@
+{
+    "A1_old_house_exterior": {
+        "default": "assets/scenes/A1_old_house_exterior_default.png",
+        "ruined_dim": "assets/scenes/A1_old_house_exterior_ruined_dim.png"
+    },
+    "UI_main_menu_bg": {
+        "default": "assets/ui/main_menu_background.png"
+    },
+    "scene_old_house": {
+        "default": "assets/scenes/placeholder_scene.png"
+    },
+    "scene_forest": {
+        "default": "assets/scenes/placeholder_forest.png"
+    },
+    "UI_dialogue_box_bg": {
+        "default": "assets/ui/ui_textbox.png"
+    },
+    "UI_next_indicator": {
+        "default": "assets/ui/next_indicator.png"
+    },
+    "scene_menu_bg": {
+        "default": "assets/scenes/image.png"
+    },
+    "FONT_pixel": {
+        "default": "assets/fonts/PixelOperator.ttf"
+    },
+    "FONT_chinese_dialogue": {
+        "default": "assets/fonts/MSYH.TTC"
+    },
+    "scene_art_tower_house": {
+        "default": "assets/scenes/arttower-house-5211917_1920.jpg"
+    },
+    "scene_marburg_castle": {
+        "default": "assets/scenes/michel_marburg-castle-8153987_1920.jpg"
+    },
+    "SFX_dialogue_blip": {
+        "default": "assets/audio/placeholder_sfx.wav"
+    },
+    "AUDIO_dialogue_bgm": {
+                    "default": "assets/audio/vntrack21.mp3"
+                },
+    "AUDIO_menu_bgm": {
+                    "default": "assets/audio/vntrack19.mp3"
+                }
+}
