@@ -1,5 +1,6 @@
 import os
 from PIL import Image
+from PIL import ImageFilter
 
 def generate_test_assets(base_dir="assets"):
     print(f"正在生成测试素材到 {base_dir}...")
@@ -45,8 +46,10 @@ def generate_test_assets(base_dir="assets"):
     for x in range(700):
         for y in range(150):
             r, g, b, a = img_textbox.getpixel((x, y))
-            noise = int((os.urandom(1)[0] / 255.0 - 0.5) * 40) # -20 到 +20 的随机噪点
+            # 颗粒感优化：降低噪点振幅并做轻微模糊，保留纸张质感但更细腻
+            noise = int((os.urandom(1)[0] / 255.0 - 0.5) * 16) # -8 到 +8 的随机噪点
             img_textbox.putpixel((x, y), (max(0, min(255, r + noise)), max(0, min(255, g + noise)), max(0, min(255, b + noise)), a))
+    img_textbox = img_textbox.filter(ImageFilter.GaussianBlur(radius=0.6))
     img_textbox.save(os.path.join(ui_dir, "ui_textbox.png"))
     print("  - 生成 assets/ui/ui_textbox.png")
 

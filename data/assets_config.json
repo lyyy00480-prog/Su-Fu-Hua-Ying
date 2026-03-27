@@ -1,7 +1,13 @@
 {
     "A1_old_house_exterior": {
-        "default": "assets/scenes/A1_old_house_exterior_default.png",
-        "ruined_dim": "assets/scenes/A1_old_house_exterior_ruined_dim.png"
+        "default": "assets/scenes/arttower-house-5211917_1920.jpg",
+        "ruined_dim": "assets/scenes/arttower-house-5211917_1920.jpg"
+    },
+    "BG_Alley_Dusk": {
+        "default": "assets/scenes/arttower-house-5211917_1920.jpg"
+    },
+    "BG_Studio_Dim": {
+        "default": "assets/scenes/placeholder_scene.png"
     },
     "UI_main_menu_bg": {
         "default": "assets/ui/main_menu_background.png"
@@ -37,9 +43,12 @@
         "default": "assets/audio/placeholder_sfx.wav"
     },
     "AUDIO_dialogue_bgm": {
-                    "default": "assets/audio/vntrack21.mp3"
-                },
+        "default": "assets/audio/vntrack21.mp3"
+    },
     "AUDIO_menu_bgm": {
-                    "default": "assets/audio/vntrack19.mp3"
-                }
+        "default": "assets/audio/vntrack19.mp3"
+    },
+    "AUDIO_ch1_bgm": {
+        "default": "assets/audio/bgm_ch1_attic.mp3"
+    }
 }

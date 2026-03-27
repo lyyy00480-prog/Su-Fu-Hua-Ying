@@ -1,34 +1,259 @@
 [
     {
-        "speaker": "林墨",
-        "text": "这间老宅……似乎比记忆中还要破败。",
-        "background": "scene_art_tower_house",
-        "sfx": "SFX_dialogue_blip",
-        "bgm": "AUDIO_dialogue_bgm"
-    },
-    {
+        "id": "S1-001",
         "speaker": "旁白",
-        "text": "他轻声叹息，眼神中充满了对往事的追忆。",
-        "background": "scene_marburg_castle",
-        "bgm": "AUDIO_dialogue_bgm"
+        "text": "【第一章：紫色的秘密】画室后巷，傍晚。雨丝斜打天窗，常春藤爬满砖墙，木门微掩。",
+        "background": "BG_Alley_Dusk",
+        "bgm": "AUDIO_ch1_bgm"
     },
     {
-        "speaker": "林墨",
-        "text": "或许，我们能在这里找到一些被时间遗忘的色彩。",
-        "background": "scene_forest",
-        "sfx": "SFX_dialogue_blip",
-        "bgm": "AUDIO_dialogue_bgm"
-    },
-    {
+        "id": "S1-002",
         "speaker": "旁白",
-        "text": "阳光透过破败的窗户，洒在他手中的速写本上。",
-        "background": "scene_forest",
-        "bgm": "AUDIO_dialogue_bgm"
+        "text": "林墨站在巷口。行李箱立在身侧，旧速写本抱在胸前，指尖沾着墨迹。他深吸一口气。",
+        "background": "BG_Alley_Dusk",
+        "bgm": "AUDIO_ch1_bgm"
     },
     {
+        "id": "S1-003",
         "speaker": "林墨",
-        "text": "每个角落，都似乎在低语着过去的故事...",
-        "background": "scene_old_house",
-        "bgm": "AUDIO_dialogue_bgm"
+        "text": "……嗨，是我。林墨。",
+        "background": "BG_Alley_Dusk",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-005",
+        "speaker": "旁白",
+        "text": "屋内：画架、半完成的油画、整齐的画笔罐。工作台上堆着紫色毛线和泰迪熊。画笔停在画布上。",
+        "background": "BG_Studio_Dim",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-006",
+        "speaker": "旁白",
+        "text": "苏青言盘腿坐在工作台上，抱着紫色泰迪熊。听到声音，她僵住——手指开始在熊身上规律地轻敲。",
+        "background": "BG_Studio_Dim",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-007",
+        "speaker": "苏青言",
+        "text": "是谁在门外？",
+        "background": "BG_Studio_Dim",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-008",
+        "speaker": "旁白",
+        "text": "林墨把速写本摊开。顶页画着：一只行李箱靠在旧门边，一个小人站着等候。他没有推门。",
+        "background": "BG_Alley_Dusk",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-009",
+        "speaker": "林墨",
+        "text": "是我。我要离开城。想——跟你道别。可以吗？",
+        "background": "BG_Alley_Dusk",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-011",
+        "speaker": "苏青言",
+        "text": "你为什么要走？你会回来吗？",
+        "background": "BG_Studio_Dim",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-012",
+        "speaker": "旁白",
+        "text": "林墨翻到下一页，展示小画序列：坐火车，然后一幢小房子，上面画着问号。他指着火车，又指着她，然后耸肩。",
+        "background": "BG_Alley_Dusk",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-013",
+        "speaker": "林墨",
+        "text": "工作。也许。没准。我会努力。我想先告诉你。",
+        "background": "BG_Alley_Dusk",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-014",
+        "speaker": "旁白",
+        "text": "苏青言盯着那些小画，手指的敲打节奏慢慢放缓。她抿着嘴，微眯着眼，在掂量这些话能不能放进她的世界。",
+        "background": "BG_Studio_Dim",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-015",
+        "speaker": "苏青言",
+        "text": "你总是先告诉我。你收拾得整齐。不要把紫色的东西丢下。",
+        "background": "BG_Studio_Dim",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-016",
+        "speaker": "旁白",
+        "text": "听到这话，林墨肩膀松了半分。他翻到下一页，画着折好的紫毛衣整齐放进箱子，小熊塞在旁边。",
+        "background": "BG_Alley_Dusk",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-017",
+        "speaker": "林墨",
+        "text": "收好了。紫色带着我走。",
+        "background": "BG_Alley_Dusk",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-018",
+        "speaker": "苏青言",
+        "text": "你喜欢紫色……你带着吗？它在你那里安全吗？",
+        "background": "BG_Studio_Dim",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-019",
+        "speaker": "旁白",
+        "text": "林墨把速写本靠在门框上，又画了个小图：两个人并排坐，一人涂了紫色阴影。他用指尖点着那个紫色阴影，像在示意保护。",
+        "background": "BG_Alley_Dusk",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-020",
+        "speaker": "林墨",
+        "text": "我会保护。保证。",
+        "background": "BG_Alley_Dusk",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-021",
+        "speaker": "旁白",
+        "text": "听到'保证」，苏青言紧了紧抱熊的手。她吸气，慢慢呼气，在心里数数——这是她从小养成的应对仪式。",
+        "background": "BG_Studio_Dim",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-022",
+        "speaker": "苏青言",
+        "text": "你走了……我可能会……沉默。我不擅长改变。噪音会让我脑子很吵。",
+        "background": "BG_Studio_Dim",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-023",
+        "speaker": "旁白",
+        "text": "林墨温柔地点头。他慢慢伸手，把一张折好的紫墨水小纸条放在门阶上。纸条上画着两只手，写着：'我在这里。'",
+        "background": "BG_Alley_Dusk",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-024",
+        "speaker": "林墨",
+        "text": "我知道。我在这儿。我会回来。我会打电话。紫色我会保管好。",
+        "background": "BG_Alley_Dusk",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-026",
+        "speaker": "苏青言",
+        "text": "你会打电话。你会回来。你是认真的吗？",
+        "background": "BG_Studio_Dim",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-027",
+        "speaker": "旁白",
+        "text": "林墨又拿起笔，快速画了最后一个小图：中心有颗心的时钟，两个小箭头对着彼此。他指着画，又指她，再指自己——笨拙又认真。",
+        "background": "BG_Alley_Dusk",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-028",
+        "speaker": "林墨",
+        "text": "会的。",
+        "background": "BG_Alley_Dusk",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-029",
+        "speaker": "苏青言",
+        "text": "你也喜欢紫色吗？",
+        "background": "BG_Studio_Dim",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-030",
+        "speaker": "旁白",
+        "text": "林墨的脸上浮现出那种被直接提问时才有的亮光。他翻到速写本最后一页，画得很细：紫毛衣、紫泰迪熊，一个背行李的小人伸向另一个小人。",
+        "background": "BG_Alley_Dusk",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-031",
+        "speaker": "林墨",
+        "text": "是的。我喜欢紫色。我一直都喜欢。",
+        "background": "BG_Alley_Dusk",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-032",
+        "speaker": "苏青言",
+        "text": "你也喜欢紫色。",
+        "background": "BG_Studio_Dim",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-033",
+        "speaker": "林墨",
+        "text": "待在这里。我很快回来。我们可以……一起画。安静的。一起。",
+        "background": "BG_Studio_Dim",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-034",
+        "speaker": "苏青言",
+        "text": "好。但你要告诉我你什么时候走。你要回来。不能放大声音乐。",
+        "background": "BG_Studio_Dim",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-035",
+        "speaker": "林墨",
+        "text": "好。我会告诉你。我会回来。不会放大声音乐。",
+        "background": "BG_Studio_Dim",
+        "sfx": "SFX_dialogue_blip",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-036",
+        "speaker": "旁白",
+        "text": "门缓缓合上，留下一道窄缝让光线溜进来。画室里弥漫着松节油与薰衣草的气味。紫色的泰迪熊如小小的条约，置于两人中央。",
+        "background": "BG_Studio_Dim",
+        "bgm": "AUDIO_ch1_bgm"
+    },
+    {
+        "id": "S1-037",
+        "speaker": "旁白",
+        "text": "苏青言哼起一段简短的、重复的旋律，一边整理紫色毛线。林墨把那节奏画进速写本的角落。雨水有节奏地敲打。",
+        "background": "BG_Studio_Dim",
+        "bgm": "AUDIO_ch1_bgm"
     }
 ]

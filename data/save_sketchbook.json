@@ -1,0 +1,142 @@
+{
+  "items": [
+    {
+      "key": "第一章:0:A1_old_house_exterior",
+      "bg_id": "A1_old_house_exterior",
+      "title": "第一章 · 片段 1",
+      "comment": "林墨：……嗨，是我。林墨。"
+    },
+    {
+      "key": "第一章:1:scene_old_house",
+      "bg_id": "scene_old_house",
+      "title": "第一章 · 片段 2",
+      "comment": "林墨：是谁在门外？"
+    },
+    {
+      "key": "第一章:2:A1_old_house_exterior",
+      "bg_id": "A1_old_house_exterior",
+      "title": "第一章 · 片段 3",
+      "comment": "林墨：是我。我要离开城。想—…"
+    },
+    {
+      "key": "第一章:3:scene_old_house",
+      "bg_id": "scene_old_house",
+      "title": "第一章 · 片段 4",
+      "comment": "林墨：你为什么要走？你会回来…"
+    },
+    {
+      "key": "第一章:4:A1_old_house_exterior",
+      "bg_id": "A1_old_house_exterior",
+      "title": "第一章 · 片段 5",
+      "comment": "林墨：工作。也许。没准。我会…"
+    },
+    {
+      "key": "第一章:5:scene_old_house",
+      "bg_id": "scene_old_house",
+      "title": "第一章 · 片段 6",
+      "comment": "林墨：你总是先告诉我。你收拾…"
+    },
+    {
+      "key": "第一章:6:A1_old_house_exterior",
+      "bg_id": "A1_old_house_exterior",
+      "title": "第一章 · 片段 7",
+      "comment": "林墨：收好了。紫色带着我走。"
+    },
+    {
+      "key": "第一章:7:scene_old_house",
+      "bg_id": "scene_old_house",
+      "title": "第一章 · 片段 8",
+      "comment": "林墨：你喜欢紫色……你带着吗…"
+    },
+    {
+      "key": "第一章:0:scene_old_house",
+      "bg_id": "scene_old_house",
+      "title": "第一章 · 片段 1",
+      "comment": "林墨：剧本加载失败。"
+    },
+    {
+      "key": "第一章:0:BG_Alley_Dusk",
+      "bg_id": "BG_Alley_Dusk",
+      "title": "第一章 · 片段 1",
+      "comment": "林墨：【第一章：紫色的秘密】…"
+    },
+    {
+      "key": "第一章:1:BG_Alley_Dusk",
+      "bg_id": "BG_Alley_Dusk",
+      "title": "第一章 · 片段 2",
+      "comment": "林墨：林墨站在巷口。行李箱立…"
+    },
+    {
+      "key": "第一章:2:BG_Alley_Dusk",
+      "bg_id": "BG_Alley_Dusk",
+      "title": "第一章 · 片段 3",
+      "comment": "林墨：……嗨，是我。林墨。"
+    },
+    {
+      "key": "第一章:3:BG_Studio_Dim",
+      "bg_id": "BG_Studio_Dim",
+      "title": "第一章 · 片段 4",
+      "comment": "林墨：屋内：画架、半完成的油…"
+    },
+    {
+      "key": "第一章:4:BG_Studio_Dim",
+      "bg_id": "BG_Studio_Dim",
+      "title": "第一章 · 片段 5",
+      "comment": "林墨：苏青言盘腿坐在工作台上…"
+    },
+    {
+      "key": "第一章:5:BG_Studio_Dim",
+      "bg_id": "BG_Studio_Dim",
+      "title": "第一章 · 片段 6",
+      "comment": "林墨：是谁在门外？"
+    },
+    {
+      "key": "第一章:6:BG_Alley_Dusk",
+      "bg_id": "BG_Alley_Dusk",
+      "title": "第一章 · 片段 7",
+      "comment": "林墨：林墨把速写本摊开。顶页…"
+    },
+    {
+      "key": "第一章:7:BG_Alley_Dusk",
+      "bg_id": "BG_Alley_Dusk",
+      "title": "第一章 · 片段 8",
+      "comment": "林墨：是我。我要离开城。想—…"
+    },
+    {
+      "key": "第一章:8:BG_Studio_Dim",
+      "bg_id": "BG_Studio_Dim",
+      "title": "第一章 · 片段 9",
+      "comment": "林墨：你为什么要走？你会回来…"
+    },
+    {
+      "key": "第一章:9:BG_Alley_Dusk",
+      "bg_id": "BG_Alley_Dusk",
+      "title": "第一章 · 片段 10",
+      "comment": "林墨：林墨翻到下一页，展示小…"
+    },
+    {
+      "key": "第一章:10:BG_Alley_Dusk",
+      "bg_id": "BG_Alley_Dusk",
+      "title": "第一章 · 片段 11",
+      "comment": "林墨：工作。也许。没准。我会…"
+    },
+    {
+      "key": "第一章:11:BG_Studio_Dim",
+      "bg_id": "BG_Studio_Dim",
+      "title": "第一章 · 片段 12",
+      "comment": "林墨：苏青言盯着那些小画，手…"
+    },
+    {
+      "key": "第一章:12:BG_Studio_Dim",
+      "bg_id": "BG_Studio_Dim",
+      "title": "第一章 · 片段 13",
+      "comment": "林墨：你总是先告诉我。你收拾…"
+    },
+    {
+      "key": "第一章:13:BG_Alley_Dusk",
+      "bg_id": "BG_Alley_Dusk",
+      "title": "第一章 · 片段 14",
+      "comment": "林墨：听到这话，林墨肩膀松了…"
+    }
+  ]
+}
